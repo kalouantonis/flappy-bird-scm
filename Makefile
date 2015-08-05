@@ -1,5 +1,7 @@
 # The compiler 
 CC=csc
+# The REPL command
+REPL=csi
 
 # The source files
 SOURCES=main.scm
@@ -11,6 +13,10 @@ OUTBIN=flappy
 
 # Default build task
 all: compile
+
+# Run the program in the REPL
+repl:
+	${REPL} ${SOURCES}
 
 # Compile the executable
 compile: mk_out_dir
