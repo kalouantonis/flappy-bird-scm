@@ -1,5 +1,4 @@
-(use sdl2 sdl2-types sdl2-raw
-     miscmacros extras)
+(use sdl2 sdl2-types sdl2-raw)
 
 (define (shutdown) (sdl-quit))
 
