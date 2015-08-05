@@ -14,6 +14,9 @@ OUTBIN=flappy
 # Default build task
 all: compile
 
+run: 
+	${OUTDIR}/${OUTBIN}
+
 # Run the program in the REPL
 repl:
 	${REPL} ${SOURCES}
