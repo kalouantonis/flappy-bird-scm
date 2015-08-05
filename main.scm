@@ -24,7 +24,8 @@
   
 ;; Function that
 (define exit-game 
-  (lambda args 
+  ;; We're not using the args at the moment
+  (lambda _ 
     (error "Undefined exit continuation")))
 
 
