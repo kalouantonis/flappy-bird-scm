@@ -5,7 +5,8 @@ and an experiment in game development with lisps in general as viable tools
 for 2D game development.
 
 ## Requirements
-1. [Chicken SDL2](https://gitlab.com/jcroisant/chicken-sdl2)
+1. [Chicken Scheme](http://www.call-cc.org/)
+2. [Chicken SDL2](https://gitlab.com/jcroisant/chicken-sdl2)
 
 ## Compiling and Running
 If you want to compile and run then use `make all`. This will build an executable 
