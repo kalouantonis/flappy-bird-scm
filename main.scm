@@ -51,7 +51,7 @@
 
 (define-constant +window-title+ "Flappy Bird")
 (define-constant +width+ 400)
-(define-constant +height+ 800)
+(define-constant +height+ 640)
 
 (define (run-game)
   (let [(window (init +window-title+ +width+ +height+))]
