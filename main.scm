@@ -16,21 +16,23 @@
                      #:shown #:resizable))
 
 (define (main-loop window)
-  (let [(done? #f)]
-    (while (not done?)
-      (select (sdl-event-type (sdl-wait-event))
-        ;; Window exposed, resized, etc...
-        [(SDL_WINDOWEVENT)
-         (SDL_FillRect (sdl-window-surface window)
-                       #f
-                       (SDL_MapRGB
-                        (sdl-surface-format (sdl-window-surface window))
-                        0 50 128))
-         (sdl-update-window-surface window)]
+  (call/cc
+    (lambda (quit)
+      (let loop ()
+        (select (sdl-event-type (sdl-wait-event))
+            ;; Window exposed, resized, etc...
+            [(SDL_WINDOWEVENT)
+            (SDL_FillRect (sdl-window-surface window)
+                        #f
+                        (SDL_MapRGB
+                            (sdl-surface-format (sdl-window-surface window))
+                            0 50 128))
+            (sdl-update-window-surface window)]
 
-        ;; User requested that the app quit
-        [(SDL_QUIT)
-         (set! done? #t)]))))
+            ;; User requested that the app quit
+            [(SDL_QUIT)
+            (quit)])
+        (loop)))))
 
 (define-constant +window-title+ "Flappy Bird")
 (define-constant +width+ 800)
