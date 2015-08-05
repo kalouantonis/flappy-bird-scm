@@ -15,6 +15,14 @@
                      ;; Flags
                      #:shown #:resizable))
 
+(define (render window)
+  (SDL_FillRect (sdl-window-surface window)
+                #f
+                (SDL_MapRGB
+                    (sdl-surface-format (sdl-window-surface window))
+                    0 50 128))) 
+  
+
 (define (main-loop window)
   (call/cc
     (lambda (quit)
@@ -22,16 +30,12 @@
         (select (sdl-event-type (sdl-wait-event))
             ;; Window exposed, resized, etc...
             [(SDL_WINDOWEVENT)
-            (SDL_FillRect (sdl-window-surface window)
-                        #f
-                        (SDL_MapRGB
-                            (sdl-surface-format (sdl-window-surface window))
-                            0 50 128))
+            (render window) 
             (sdl-update-window-surface window)]
 
             ;; User requested that the app quit
             [(SDL_QUIT)
-            (quit)])
+            (quit #f)])
         (loop)))))
 
 (define-constant +window-title+ "Flappy Bird")
