@@ -30,12 +30,13 @@
         (select (sdl-event-type (sdl-wait-event))
             ;; Window exposed, resized, etc...
             [(SDL_WINDOWEVENT)
-            (render window) 
-            (sdl-update-window-surface window)]
+             (begin
+                (render window)
+                (sdl-update-window-surface window))]
 
             ;; User requested that the app quit
             [(SDL_QUIT)
-            (quit #f)])
+             (quit #f)])
         (loop)))))
 
 (define-constant +window-title+ "Flappy Bird")
