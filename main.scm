@@ -22,10 +22,16 @@
                     (sdl-surface-format (sdl-window-surface window))
                     0 50 128))) 
   
+(define exit-game #f)
+
 
 (define (main-loop window)
   (call/cc
     (lambda (quit)
+      ;; Store continuation somewhere so as to be used to arbitrarily exit at
+      ;; any point. E.g. Menu button 'exit' is clicked.
+      (set! exit-game quit)
+
       (let loop ()
         (select (sdl-event-type (sdl-wait-event))
             ;; Window exposed, resized, etc...
@@ -36,7 +42,7 @@
 
             ;; User requested that the app quit
             [(SDL_QUIT)
-             (quit #f)])
+             (exit-game #f)])
         (loop)))))
 
 (define-constant +window-title+ "Flappy Bird")
