@@ -1,1 +1,2 @@
-main
+# Build directory specified in the makefile
+build
