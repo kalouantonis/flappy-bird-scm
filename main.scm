@@ -49,11 +49,11 @@
         (loop)))))
 
 (define-constant +window-title+ "Flappy Bird")
-(define-constant +width+ 400)
-(define-constant +height+ 640)
+(define-constant +window-width+ 400)
+(define-constant +window-height+ 640)
 
 (define (run-game)
-  (let [(window (init +window-title+ +width+ +height+))]
+  (let [(window (init +window-title+ +window-width+ +window-height+))]
     (main-loop window)))
 
 ;; Top level run when we're not running in interactive mode
