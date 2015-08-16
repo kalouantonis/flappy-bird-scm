@@ -1,4 +1,4 @@
-# The compiler 
+# The compiler
 CC=csc
 # The REPL command
 REPL=csi
@@ -14,7 +14,7 @@ OUTBIN=flappy
 # Default build task
 all: compile
 
-run: 
+run: compile
 	${OUTDIR}/${OUTBIN}
 
 # Run the program in the REPL
@@ -25,7 +25,7 @@ repl:
 compile: mk_out_dir
 	${CC} ${SOURCES} -o ${OUTDIR}/${OUTBIN}
 
-# Create the output directory 
-mk_out_dir: 
+# Create the output directory
+mk_out_dir:
 	-mkdir ${OUTDIR}
 

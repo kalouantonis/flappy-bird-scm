@@ -19,14 +19,13 @@
                 #f
                 (SDL_MapRGB
                     (sdl-surface-format (sdl-window-surface window))
-                    0 50 128))) 
-  
-;; Function that
-(define exit-game 
-  ;; We're not using the args at the moment
-  (lambda _ 
-    (error "Undefined exit continuation")))
+                    0 50 128)))
 
+;; Function that
+(define exit-game
+  ;; We're not using the args at the moment
+  (lambda _
+    (error "Undefined exit continuation")))
 
 (define (main-loop window)
   (call/cc
