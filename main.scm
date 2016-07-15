@@ -1,6 +1,6 @@
 (use sdl2 sdl2-types sdl2-raw)
 
-(define (shutdown) (sdl-quit))
+(define shutdown sdl-quit)
 
 (define (init title width height)
   (sdl-init #:video #:events #:timer)
